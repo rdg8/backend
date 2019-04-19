@@ -11,9 +11,9 @@ const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
 io.on('connection', socket => {
-    socket.on('conectRoom', box => {
-        socket.json(box);
-    })
+    socket.on('connectRoom', box => {
+        socket.join(box);
+    });
 });
 
 mongoose.connect('mongodb+srv://omnistack:omnistack321@cluster0-ins2r.mongodb.net/omnistack?retryWrites=true', 
